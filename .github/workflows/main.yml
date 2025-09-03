@@ -33,4 +33,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-mi-service:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/poc-mi-service:latest
