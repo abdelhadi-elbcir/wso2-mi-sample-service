@@ -1,0 +1,13 @@
+openapi: 3.0.1
+info:
+  title: httpbin
+  description: API Definition of httpbin
+  version: v1
+servers:
+- url: http://localhost:8290/httpbin/v1
+paths:
+  /get:
+    get:
+      responses:
+        default:
+          description: Default response

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/httpbin" name="httpbin" version="v1" version-type="url" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/get">
+        <inSequence>
+            <log>
+                <property name="Debug" value="GET /get called"/>
+                <property name="HTTP_METHOD" expression="get-property('axis2', 'HTTP_METHOD')"/>
+                <property name="QUERY_STRING" expression="get-property('axis2', 'QUERY_STRING')"/>
+            </log>
+            <call blocking="true">
+                <endpoint key="httpbin-server"/>
+            </call>
+            <log>
+                <property name="Debug" value="Response from httpbin-server"/>
+                <property name="RESPONSE" expression="get-property('RESPONSE')"/>
+            </log>
+        </inSequence>
+        <faultSequence>
+        </faultSequence>
+    </resource>
+</api>
